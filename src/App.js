@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useContext, useEffect, useState }from 'react'
+import axios from 'axios'
 
-function App() {
+
+function App() 
+{
+
+  let quer1 ="https://reqres.in/api/users?page=2";
+
+const [getInputValue, setInputValue] = useState()
+const [getRes, setRes] = useState()
+
+const onSubmit =e => 
+{
+  e.preventDefault();
+
+  axios.get(getInputValue).then((res => {
+  var obj=JSON.stringify(res)
+  setRes(obj)
+
+
+  }))
+
+}
+
   return (
+  
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {console.log("z1---0",getInputValue)}
+      <label>Demo Test</label>
+      <input type="text" value={getInputValue} onChange={ e => setInputValue(e.target.value)}/>
+      <br></br>
+      <button type ="submit" onClick={onSubmit}>Send</button> 
+      <br></br>   
+      < textarea type ="text"  value={getRes}/>
+
     </div>
   );
 }
