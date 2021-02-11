@@ -19,7 +19,7 @@
   "scripts": {
 
     "start": "node server",
-    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build && node server",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
